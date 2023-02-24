@@ -465,6 +465,7 @@ const messages = {
         },
       },
       settings: {
+        wook: "Webhook",
         success: "Configurações salvas com sucesso.",
         title: "Configurações",
         settings: {

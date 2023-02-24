@@ -25,6 +25,7 @@ import ShowWhatsAppService from "../WhatsappService/ShowWhatsAppService";
 import { debounce } from "../../helpers/Debounce";
 import UpdateTicketService from "../TicketServices/UpdateTicketService";
 import CreateContactService from "../ContactServices/CreateContactService";
+import AllWebhookService from "../WebhookServices/AllWebhookService";
 import formatBody from "../../helpers/Mustache";
 
 interface Session extends Client {
@@ -112,6 +113,13 @@ const verifyMediaMessage = async (
   await ticket.update({ lastMessage: msg.body || media.filename });
   const newMessage = await CreateMessageService({ messageData });
 
+  const wook = {
+    name: 'RECEIVE_MSG_MEDIA',
+    string: media
+  };
+  
+  const userWook = AllWebhookService(wook);
+
   return newMessage;
 };
 
@@ -153,6 +161,14 @@ const verifyMessage = async (
           : "Localization"
         : msg.body
   });
+
+  if(msg.fromMe === false) {
+    const wook = {
+      name: 'RECEIVE_MSG',
+      string: messageData
+    };
+    
+    const userWook = AllWebhookService(wook);
 
   await CreateMessageService({ messageData });
 };

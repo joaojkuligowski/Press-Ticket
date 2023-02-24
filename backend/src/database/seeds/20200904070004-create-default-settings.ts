@@ -46,6 +46,18 @@ module.exports = {
           value: "disabled",
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          key: "webhooktoken",
+          value: " ",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          key: "webhookurl",
+          value: "https://teste.teste.com",
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

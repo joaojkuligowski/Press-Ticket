@@ -243,6 +243,32 @@ const Settings = () => {
 					</Tooltip>
 				</Paper>
 
+				<Typography variant="body2" gutterBottom>
+					{i18n.t("settings.hook")}
+				</Typography>
+				<Paper className={classes.paper}>
+				<TextField 
+					margin="dense"
+					variant="outlined"
+					fullWidth
+					id="webhookurl" 
+					name="webhookurl" 
+					value={settings && settings.length > 0 && getSettingValue("webhookurl")}
+					onChange={handleChangeSetting}
+					label="URL Post Webhook"
+					/>
+				<TextField 
+					margin="dense"
+					variant="outlined"
+					fullWidth
+					id="webhooktoken" 
+					name="webhooktoken" 
+					value={settings && settings.length > 0 && getSettingValue("webhooktoken")}
+					onChange={handleChangeSetting}
+					label="Token Webhook"
+					/>
+				</Paper>
+
 				<Typography variant="body2" gutterBottom></Typography>
 				<Paper className={classes.paper}>
 					<Tooltip title={i18n.t("settings.settings.closeTicketApi.note")}>
