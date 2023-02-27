@@ -2,7 +2,7 @@ import Setting from "../../models/Setting";
 import axios from "axios";
 
 
-async function AllWebhookService(wook){
+async function AllWebhookService(wook: { name: any; string: any; }){
   const wookname = [wook.name];
   const wookstring = [wook.string];
   const getHook = await Setting.findOne({ where: { key: 'webhookurl' } });
