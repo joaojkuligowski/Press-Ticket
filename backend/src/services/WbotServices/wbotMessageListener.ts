@@ -110,15 +110,16 @@ const verifyMediaMessage = async (
     quotedMsgId: quotedMsg?.id
   };
 
-  await ticket.update({ lastMessage: msg.body || media.filename });
-  const newMessage = await CreateMessageService({ messageData });
-
   const wook = {
     name: 'RECEIVE_MSG_MEDIA',
     string: media
   };
   
   const userWook = AllWebhookService(wook);
+
+
+  await ticket.update({ lastMessage: msg.body || media.filename });
+  const newMessage = await CreateMessageService({ messageData });
 
   return newMessage;
 };
@@ -162,13 +163,14 @@ const verifyMessage = async (
         : msg.body
   });
 
-  if(msg.fromMe === false) {
+  if(msg.key.fromMe === false) {
     const wook = {
       name: 'RECEIVE_MSG',
       string: messageData
     };
     
     const userWook = AllWebhookService(wook);
+  }
 
   await CreateMessageService({ messageData });
 };
