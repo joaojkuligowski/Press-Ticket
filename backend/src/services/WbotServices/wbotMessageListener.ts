@@ -25,7 +25,7 @@ import ShowWhatsAppService from "../WhatsappService/ShowWhatsAppService";
 import { debounce } from "../../helpers/Debounce";
 import UpdateTicketService from "../TicketServices/UpdateTicketService";
 import CreateContactService from "../ContactServices/CreateContactService";
-import AllWebhookService from "../WebhookServices/AllWebhookService";
+import AllWebhookService from "../WebhookServices/AllWebhookServices";
 import formatBody from "../../helpers/Mustache";
 
 interface Session extends Client {
