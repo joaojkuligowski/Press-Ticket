@@ -163,7 +163,7 @@ const verifyMessage = async (
         : msg.body
   });
 
-  if(msg.key.fromMe === false) {
+  if(msg.fromMe === false) {
     const wook = {
       name: 'RECEIVE_MSG',
       string: messageData
