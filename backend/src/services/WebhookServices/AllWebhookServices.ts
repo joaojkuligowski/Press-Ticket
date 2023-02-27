@@ -16,7 +16,7 @@ async function AllWebhookService(wook: { name: any; string: any; }){
 
 axios({
   method: 'POST',
-  url: getHook.value, 
+  url: getHook.value || 'https://test.com',
   data: JSON.stringify(retorno), 
   headers:{'Content-Type': 'application/json; charset=utf-8', 'Authorization': getHookAut.value}
 }) 
